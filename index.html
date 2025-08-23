@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ヒヨコサバイバー</title>
+</head>
+<body>
+ <div style="display: flex; gap: 40px;">
+    <div id="container" style="box-sizing: border-box;width:1000px;height:625px;position:absolute;border: 1px solid #000; background-color: #eee;">
+      <div id="levelUpScreen" style="display: none; gap: 50px; justify-content: center; align-items: center; width: 100%; height: 100%; position: absolute;top: 0;left: 0;background-color: rgba(0,0,0,.8); z-index: 100;">
+      </div>
+      <div id="gameOverScreen" style="display: none; width: 100%; height: 100%; position: absolute; align-items: center; justify-content: center; background-color: rgba(0,0,0,.8); color: #fff; font-size: 96px; font-family: 'impact'; z-index: 1;"></div>
+    </div>
+
+    <div style="position:absolute;left: 1050px;;box-sizing: border-box; border: #000 1px solid;padding: 20px;">
+      <div style="box-sizing: border-box;border: 1px solid #000; padding-inline: 10px;">
+        <p>
+          あなたの最高得点：<span id="high-score" style="font-weight: 900; font-size: 1.5em;">0</span>
+        </p>
+      </div>
+      <p>
+        マウスポインターの位置に🐥が移動します。<br>
+        スペースキーをおしている間は動きません
+      </p>
+      <p>
+        <span style="color: green">緑色</span>のエネルギーを集めるか敵を倒すと経験値獲得<br>
+        (<span style="color:red">赤色</span>のエネルギーは経験値5倍！)
+      </p>
+      <p>
+        一定数経験値が貯まるとレベルアップ！<br>
+        強化 / 回復ができます
+      </p>
+      <p>
+        ゲームオーバー時は再読み込みしてください。
+      </p>
+
+      
+    </div>
+ </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
