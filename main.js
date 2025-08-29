@@ -179,11 +179,9 @@ let isPenetratable = false;
 window.onload = async () => {
 
   // ローカルストレージを読み込む
-  const highScore = localStorage.getItem("highScore");
+  let highScore = parseInt(localStorage.getItem("highScore")) || 0;
   const highScoreElement = document.getElementById('high-score')
-  if(highScore) {
-    highScoreElement.textContent = highScore;
-  }
+  highScoreElement.textContent = highScore;
 
 
   const infoContainer = document.createElement('div');
@@ -527,11 +525,15 @@ window.onload = async () => {
         if (heroHp < 0) {
           heroHp = 0;
           gameOver = true;
-          gameOverScreen.innerHTML = `GAME OVER<br>SCORE: ${score}`;
-          gameOverScreen.style.display = 'flex';
+          let gameOverMessage = `GAME OVER<br>SCORE: ${score}`;
           if(score > highScore) {
-            localStorage.setItem('highScore',score)
+            highScore = score;
+            localStorage.setItem('highScore', score);
+            highScoreElement.textContent = highScore;
+            gameOverMessage += `<br><span style="color: red; font-size: 48px;">最高記録更新！</span>`;
           }
+          gameOverScreen.innerHTML = gameOverMessage;
+          gameOverScreen.style.display = 'flex';
         }
         refleshInfoContainer();
       }
